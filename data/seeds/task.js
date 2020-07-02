@@ -1,5 +1,5 @@
 exports.seed = async function (knex) {
-  await knex(task).insert([
+  await knex("task").insert([
     {
       id: 1,
       description: "Prep for the meeting",

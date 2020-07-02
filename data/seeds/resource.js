@@ -1,5 +1,5 @@
 exports.seed = async function (knex) {
-  await knex(resource).insert([
+  await knex("resource").insert([
     {
       id: 1,
       name: "Projector",
