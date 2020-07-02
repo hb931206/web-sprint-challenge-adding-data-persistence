@@ -1,8 +1,15 @@
-// const { Router } = require("express");
+const express = require("express");
+const Resource = require("../model/resource");
 
-// const express = require("express")
-// const
+const router = express.Router();
 
-// Router.get("/projects", (req, res, next) => {
+router.get("/resources", async (req, res, next) => {
+  try {
+    const resources = await Resource.find();
+    res.json(resources);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// });
+module.exports = router;

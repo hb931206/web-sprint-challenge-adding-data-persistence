@@ -19,14 +19,14 @@ exports.up = async function (knex) {
     table.boolean("completed").defaultTo(false).notNull();
   });
 
-  await knex.schema.createTable("project_resource", (table) => {
-    table.integer("project_id").references("id").inTable("project");
-    table.integer("resource_id").references("id").inTable("resources");
-  });
+  // await knex.schema.createTable("project_resource", (table) => {
+  //   table.integer("project_id").references("id").inTable("project");
+  //   table.integer("resource_id").references("id").inTable("resources");
+  // });
 };
 
 exports.down = async function (knex) {
-  await knex.schema.dropTableIfExists("project_resource");
+  // await knex.schema.dropTableIfExists("project_resource");
   await knex.schema.dropTableIfExists("task");
   await knex.schema.dropTableIfExists("resource");
   await knex.schema.dropTableIfExists("project");
