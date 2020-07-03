@@ -1,9 +1,18 @@
 const express = require("express");
 const db = require("../data/config");
-// Add Task when you've developed your (/models/task)
-// const Task =
+
+const Task = require("../model/task");
 
 const router = express.Router();
+
+router.get("/tasks", async (req, res, next) => {
+  try {
+    const tasks = await Task.find();
+    res.json(tasks);
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.post("/tasks", async (req, res, next) => {
   try {

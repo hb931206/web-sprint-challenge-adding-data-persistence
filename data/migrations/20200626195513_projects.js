@@ -17,16 +17,11 @@ exports.up = async function (knex) {
     table.text("description");
     table.text("notes");
     table.boolean("completed").defaultTo(false).notNull();
+    table.integer("project_id").references("id").inTable("project");
   });
-
-  // await knex.schema.createTable("project_resource", (table) => {
-  //   table.integer("project_id").references("id").inTable("project");
-  //   table.integer("resource_id").references("id").inTable("resources");
-  // });
 };
 
 exports.down = async function (knex) {
-  // await knex.schema.dropTableIfExists("project_resource");
   await knex.schema.dropTableIfExists("task");
   await knex.schema.dropTableIfExists("resource");
   await knex.schema.dropTableIfExists("project");
