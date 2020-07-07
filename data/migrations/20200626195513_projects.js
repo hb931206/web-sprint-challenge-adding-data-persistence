@@ -8,7 +8,7 @@ exports.up = async function (knex) {
 
   await knex.schema.createTable("resource", (table) => {
     table.increments();
-    table.text("name").unique();
+    table.text("name").notNull();
     table.text("description");
   });
 

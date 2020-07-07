@@ -18,6 +18,7 @@ router.post("/tasks", async (req, res, next) => {
   try {
     const [id] = await db("task").insert(req.body);
     const taskPost = await db("task").where({ id }).first();
+
     res.status(201).json(taskPost);
   } catch (err) {
     next(err);
